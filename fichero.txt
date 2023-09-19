@@ -1,0 +1,4 @@
+Esto es un fichero de prueba
+con varias líneas. Esta es la segunda
+
+Y aquí viene la cuarta porque hay una en blanco
