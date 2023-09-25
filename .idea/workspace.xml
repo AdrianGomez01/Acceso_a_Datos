@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="primer ejemplo">
-      <change afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/UserDataCollector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/ficheroApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/ficheroTest.txt" afterDir="false" />
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="primera aplicacion de ejemplo (ficheros)">
+      <change afterPath="$PROJECT_DIR$/bkp-fichero.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bkp-fichero2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/ficheroDos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/ficheroUno.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fichero.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fichero.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fichero2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fichero2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/ficheroApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAplicacionFicheros/ficheroApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2VX4opiWxTwNEskTMeV54GIiPKh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -84,7 +92,8 @@
       <workItem from="1695121909226" duration="637000" />
       <workItem from="1695123298222" duration="4088000" />
       <workItem from="1695295097520" duration="43000" />
-      <workItem from="1695363913812" duration="6785000" />
+      <workItem from="1695363913812" duration="6825000" />
+      <workItem from="1695623066717" duration="3101000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
@@ -94,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695127412147</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="primera aplicacion de ejemplo (ficheros)">
+      <option name="closed" value="true" />
+      <created>1695370871722</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695370871722</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="primer ejemplo" />
-    <option name="LAST_COMMIT_MESSAGE" value="primer ejemplo" />
+    <MESSAGE value="primera aplicacion de ejemplo (ficheros)" />
+    <option name="LAST_COMMIT_MESSAGE" value="primera aplicacion de ejemplo (ficheros)" />
   </component>
 </project>

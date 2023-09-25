@@ -1,6 +1,7 @@
 package EjemploAplicacionFicheros;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -128,13 +129,12 @@ public class ficheroApp {
     private static void sustituirPalabras() throws IOException {
 
         //Pedimos el nombre del fichero
-        Scanner sn = new Scanner(System.in);
         System.out.println("Introduce la ruta del fichero");
-        String ruta = sn.nextLine();
+        String ruta = sc.nextLine();
         System.out.println("Introduce la palabra a sustituir");
-        String palabraASustituir = sn.nextLine();
+        String palabraASustituir = sc.nextLine();
         System.out.println("Introduce la palabra que sustituye");
-        String palabraSustituta = sn.nextLine();
+        String palabraSustituta = sc.nextLine();
 
         //Hacemos copia de seguridad del fichero original
         clonacion(ruta, "bkp-");
@@ -145,6 +145,7 @@ public class ficheroApp {
             char[] lectura = new char[(int)f.length()];
             int leidos = br.read(lectura);
             String contenido = new String(lectura); //Convertimos el array de caracteres en un String
+            //Cerramos el buffer de lectura, ya que de lo contrario no nos deja abrir uno de escritura
             br.close();
             contenido = contenido.replaceAll(palabraASustituir, palabraSustituta);
             BufferedWriter bw = new BufferedWriter(new FileWriter(f));
@@ -158,7 +159,37 @@ public class ficheroApp {
     }
 
     private static void unirFicheros() throws IOException {
+        //Pedimos el nombre del primer fichero
+        System.out.println("Introduce la ruta del primer fichero");
+        String ruta1 = sc.nextLine();
+        //Pedimos el nombre del segundo fichero
+        System.out.println("Introduce la ruta del segundo fichero");
+        String ruta2 = sc.nextLine();
+        //Hacemos copia de seguridad de los ficheros originales
+        clonacion(ruta1, "bkp-");
+        clonacion(ruta2, "bkp-");
 
+        try {
+            File f1 = new File(ruta1);
+            File f2 = new File(ruta2);
+            BufferedReader br1 = new BufferedReader(new FileReader(f1));
+            BufferedReader br2 = new BufferedReader(new FileReader(f2));
+            char[] lectura1 = new char[(int)f1.length()];
+            char[] lectura2 = new char[(int)f2.length()];
+            int leido1 = br1.read(lectura1);
+            int leido2 = br2.read(lectura2);
+            StringBuilder contenido = new StringBuilder();
+            //Cerramos el buffer de lectura, ya que de lo contrario no nos deja abrir uno de escritura
+            br1.close();
+            br2.close();
+            contenido.append(lectura1).append("\n").append(lectura2);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f1));
+            bw.write(String.valueOf(contenido));
+            bw.close();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 //  Solucion del profesor
@@ -185,5 +216,49 @@ public class ficheroApp {
 //        }
 //
 //        System.out.println("El número total de palabras es: " + contador);
+//    }
+
+    //Solucion del profesor unir ficheros
+//    private static void unirFicheros() {
+//        //Pedimos el nombre del fichero
+//        Scanner sn = new Scanner(System.in);
+//        System.out.println("Introduce la ruta del primer fichero");
+//        String ruta = sn.nextLine();
+//        System.out.println("Introduce la ruta del segundo fichero");
+//        String ruta2 = sn.nextLine();
+//        System.out.println("¿Qué fichero debe ir primero?");
+//        int orden = sn.nextInt();
+//        try {
+//            File f = new File(ruta);
+//            File f2 = new File(ruta2);
+//
+//            if (orden == 1) {
+//                //Hacemos copia de seguridad del fichero original
+//                clonacion(ruta, "bkp-");
+//                unir(f, f2);
+//            }else if (orden == 2) {
+//                //Hacemos copia de seguridad del fichero original
+//                clonacion(ruta2, "bkp-");
+//                unir(f2, f);
+//            } else {
+//                System.out.println("El orden introducido no es correcto. Sólo puede ser 1 o 2");
+//            }
+//
+//        }catch(IOException e){
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    private static void unir(File f, File f2) throws IOException {
+//        BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
+//        BufferedReader br = new BufferedReader(new FileReader(f2));
+//        char[] lectura = new char[(int)f2.length()];
+//        br.read(lectura);
+//        String contenido = new String(lectura);
+//        bw.newLine();
+//        bw.write(contenido);
+//        br.close();
+//        bw.close();
+//
 //    }
 }
