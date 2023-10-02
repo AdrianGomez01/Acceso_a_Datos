@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="anhadido metodo de unir ficheros en el ejemplo aplicacion ficheros">
-      <change afterPath="$PROJECT_DIR$/fic_sec_ord.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EjemploBBDDconFicheros/FicheroSecuencial.java" afterDir="false" />
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="terminado el ejercicio fichero secuencial con solucion del profesor">
+      <change afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Coche.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/UserDataCollector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema1/a.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +58,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Tema1.Tarea1_1" />
       <recent name="EjemploAplicacionFicheros" />
     </key>
   </component>
@@ -91,7 +94,8 @@
       <workItem from="1695726713718" duration="3059000" />
       <workItem from="1695813930759" duration="60000" />
       <workItem from="1695889407093" duration="32000" />
-      <workItem from="1695968579175" duration="6277000" />
+      <workItem from="1695968579175" duration="6882000" />
+      <workItem from="1696227947971" duration="3304000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
@@ -117,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695626237365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="terminado el ejercicio fichero secuencial con solucion del profesor">
+      <option name="closed" value="true" />
+      <created>1695974992795</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695974992795</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +140,7 @@
     <MESSAGE value="primer ejemplo" />
     <MESSAGE value="primera aplicacion de ejemplo (ficheros)" />
     <MESSAGE value="anhadido metodo de unir ficheros en el ejemplo aplicacion ficheros" />
-    <option name="LAST_COMMIT_MESSAGE" value="anhadido metodo de unir ficheros en el ejemplo aplicacion ficheros" />
+    <MESSAGE value="terminado el ejercicio fichero secuencial con solucion del profesor" />
+    <option name="LAST_COMMIT_MESSAGE" value="terminado el ejercicio fichero secuencial con solucion del profesor" />
   </component>
 </project>
