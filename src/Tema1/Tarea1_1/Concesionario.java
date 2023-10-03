@@ -15,12 +15,17 @@ public class Concesionario {
     private long numRegMarcadosBorrado;
 
     public static void main(String[] args) {
+    int opcion = menu();
+
+    }
+
+    public static int menu(){
         System.out.println("Menú");
-        System.out.println("1. Clonar ficheros");
-        System.out.println("2. Contar palabras de un fichero");
-        System.out.println("3. Contar ocurrencias de una palabra en un fichero");
-        System.out.println("4. Sustituir palabras de un fichero");
-        System.out.println("5. Unir ficheros");
+        System.out.println("1. Cargar fichero CSV");
+        System.out.println("2. Insertar nuevo coche");
+        System.out.println("3. Ordenar BD por matrícula");
+        System.out.println("4. Borrar un registro");
+        System.out.println("5. Modificar marca o modelo");
         System.out.println("6. Salir");
 
         return UserDataCollector.getEnteroMinMax("Seleccione una opción", 1, 5);
