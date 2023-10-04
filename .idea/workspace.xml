@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="terminado el ejercicio fichero secuencial con solucion del profesor">
-      <change afterPath="$PROJECT_DIR$/BBDDCoches.csv" afterDir="false" />
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="comenzada tarea 1.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" afterDir="false" />
     </list>
@@ -94,6 +93,7 @@
       <workItem from="1695889407093" duration="32000" />
       <workItem from="1695968579175" duration="6882000" />
       <workItem from="1696227947971" duration="3304000" />
+      <workItem from="1696431590734" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
