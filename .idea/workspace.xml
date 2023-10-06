@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="comenzada tarea 1.1">
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="remake 1.1">
+      <change afterPath="$PROJECT_DIR$/BBDDCoches.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" afterDir="false" />
     </list>
@@ -59,18 +60,6 @@
       <recent name="EjemploAplicacionFicheros" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Pruebas" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="flujosYFicheros.Ejemplo1" />
-      <module name="Acceso a Datos" />
-      <option name="PROGRAM_PARAMETERS" value="fichero2.txt" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -93,7 +82,8 @@
       <workItem from="1695889407093" duration="32000" />
       <workItem from="1695968579175" duration="6882000" />
       <workItem from="1696227947971" duration="3304000" />
-      <workItem from="1696431590734" duration="17000" />
+      <workItem from="1696431590734" duration="44000" />
+      <workItem from="1696573465649" duration="5788000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
@@ -127,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695974992795</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="remake 1.1">
+      <option name="closed" value="true" />
+      <created>1696431626517</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696431626517</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +137,7 @@
     <MESSAGE value="primera aplicacion de ejemplo (ficheros)" />
     <MESSAGE value="anhadido metodo de unir ficheros en el ejemplo aplicacion ficheros" />
     <MESSAGE value="terminado el ejercicio fichero secuencial con solucion del profesor" />
-    <option name="LAST_COMMIT_MESSAGE" value="terminado el ejercicio fichero secuencial con solucion del profesor" />
+    <MESSAGE value="remake 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="remake 1.1" />
   </component>
 </project>
