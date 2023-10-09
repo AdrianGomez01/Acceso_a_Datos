@@ -1,21 +1,28 @@
 package Tema1.Tarea1_1;
 
-import EjemploAplicacionFicheros.UserDataCollector;
-
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Concesionario {
 
-    private static final Scanner sc = new Scanner(System.in);
-
     private static LinkedList<Coche> listaCoches = new LinkedList<>();
 
     public static void main(String[] args) throws IOException {
-        int opcion = menu();
-        while (opcion != 6) {
-            opcion = menu();
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+
+        do {
+            System.out.println("¿Qué desea hacer?");
+            System.out.println("1. Cargar fichero CSV");
+            System.out.println("2. Insertar nuevo coche");
+            System.out.println("3. Ordenar BD por matrícula");
+            System.out.println("4. Borrar un registro");
+            System.out.println("5. Modificar marca o modelo");
+            System.out.println("6. Salir");
+
+            opcion = scanner.nextInt();
+
             switch (opcion) {
                 case 1:
                     cargarCVS();
@@ -36,25 +43,12 @@ public class Concesionario {
                     System.out.println("Adios!");
                     break;
                 default:
-                    System.out.println("Opción incorrecta");
+                    System.out.println("Opción no válida. Por favor, selecciona una opción válida.");
             }
-            sc.close();
-        }
+        } while (opcion != 6);
 
+        scanner.close();
     }
-
-    public static int menu() {
-        System.out.println("¿Qué desea hacer?");
-        System.out.println("1. Cargar fichero CSV");
-        System.out.println("2. Insertar nuevo coche");
-        System.out.println("3. Ordenar BD por matrícula");
-        System.out.println("4. Borrar un registro");
-        System.out.println("5. Modificar marca o modelo");
-        System.out.println("6. Salir");
-
-        return UserDataCollector.getEnteroMinMax("Seleccione una opción", 1, 6);
-    }
-
 
     private static void modificarRegistroPorMatricula() {
 
@@ -70,6 +64,7 @@ public class Concesionario {
 
     private static void insertarCoche() throws IOException {
 
+        Scanner sc = new Scanner(System.in);
         System.out.println("En qué posición desea insertar el registro?");
         int pos = sc.nextInt();
 
@@ -95,30 +90,26 @@ public class Concesionario {
             listaCoches.add(coche);
         }
         volcarLista(listaCoches);
-        scanner.close();
-
     }
 
     public static void volcarLista(LinkedList<Coche> lista) {
         try (RandomAccessFile raf = new RandomAccessFile("BBDDCoches.dat", "rw")) {
             for (Coche coche : lista) {
-                //TODO hacer raf.whrite para probar si falla
-                escribirCampo(raf, coche.getMatricula(), 7);
-                escribirCampo(raf, coche.getMarca(), 32);
-                escribirCampo(raf, coche.getModelo(), 32);
+
+                String valorMatricula = String.format("%1$-" + 7 + "s", coche.getMatricula());
+                raf.write(valorMatricula.getBytes("UTF-8"));
+
+                String valorMarca = String.format("%1$-" + 32 + "s", coche.getMarca());
+                raf.write(valorMarca.getBytes("UTF-8"));
+
+                String valorModelo = String.format("%1$-" + 32 + "s", coche.getModelo());
+                raf.write(valorModelo.getBytes("UTF-8"));
+
             }
             System.out.println("La lista de coches se ha guardado");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void escribirCampo(RandomAccessFile raf, String campo, int longitud) throws IOException {
-        byte[] bytes = new byte[longitud];
-        byte[] campoBytes = campo.getBytes("UTF-8");
-        int len = Math.min(campoBytes.length, longitud);
-        System.arraycopy(campoBytes, 0, bytes, 0, len);
-        raf.write(bytes);
     }
 }
 
