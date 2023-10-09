@@ -1,6 +1,6 @@
 package Tema1.Tarea1_1;
 
-public class Coche {
+public class Coche implements Comparable<Coche>{
     private String matricula;
     private String marca;
     private String modelo;
@@ -21,5 +21,27 @@ public class Coche {
 
     public String getModelo() {
         return modelo;
+    }
+
+    @Override
+    public String toString() {
+        return "Coche{" +
+                "matricula='" + matricula + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Coche otroCoche) {
+        return this.matricula.compareTo(otroCoche.matricula);
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 }
