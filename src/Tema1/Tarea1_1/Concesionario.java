@@ -1,10 +1,7 @@
 package Tema1.Tarea1_1;
 
 import java.io.*;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Concesionario {
 
@@ -19,10 +16,6 @@ public class Concesionario {
         //Calculo el numRegistros dividiendo por el num de bytes que tiene cada registro.
         this.numRegistros = (int) (this.fichero.length() / 71);
 
-        //if (this.fichero.length() > 0) {
-        //    recuperarLista();
-        //}
-
     }
 
     /**
@@ -31,11 +24,9 @@ public class Concesionario {
     public void modificarRegistroPorPosicion() {
         recuperarLista();
         Scanner sc = new Scanner(System.in);
-        //creo otro scanner para guardar la marca y el modelo nuevos porque si no se me salta la marca.
-        Scanner mm = new Scanner(System.in);
 
         System.out.println("Introduzca la posición del vehiculo que desea modificar: ");
-        int pos = sc.nextInt();
+        int pos = Integer.parseInt(sc.nextLine());
 
         //Comprobamos que la posición sea válida como en nuestro método de Insertar
         if (pos >= 0 && pos <= listaCoches.size()) {
@@ -43,9 +34,9 @@ public class Concesionario {
             Coche cocheAModificar = listaCoches.get(pos);
             // Modificamos los campos del coche según indique el usuario
             System.out.println("Introduzca nueva la marca del vehiculo: ");
-            String nuevaMarca = mm.nextLine();
+            String nuevaMarca = sc.nextLine();
             System.out.println("Introduzca el nuevo modelo del vehiculo: ");
-            String nuevoModelo = mm.nextLine();
+            String nuevoModelo = sc.nextLine();
 
             cocheAModificar.setMarca(nuevaMarca);
             cocheAModificar.setModelo(nuevoModelo);
@@ -65,13 +56,12 @@ public class Concesionario {
     public void borrarRegistroPorMatriculaOPosicion() {
         recuperarLista();
         Scanner sc = new Scanner(System.in);
-        Scanner mm = new Scanner(System.in);
         int opcion;
         System.out.println("Como desea buscar el vehiculo a eliminar? ");
         System.out.println("1. Por posición ");
         System.out.println("2. Por matricula ");
         System.out.println("3. Salir ");
-        opcion = sc.nextInt();
+        opcion = Integer.parseInt(sc.nextLine());
         switch (opcion) {
             case 1:
                 System.out.println("Introduzca la posición del vehiculo que desea borrar: ");
@@ -90,7 +80,7 @@ public class Concesionario {
                 break;
             case 2:
                 System.out.println("Introduzca la matricula del vehiculo que desea borrar: ");
-                String matricula = mm.nextLine();
+                String matricula = sc.nextLine();
 
                 // Iteramos sobre la lista y buscamos el coche por matrícula
                 boolean cocheEncontrado = buscarCoche(matricula);
@@ -116,17 +106,39 @@ public class Concesionario {
         }
 
 
-
     }
 
     /**
      *
      */
-    public void ordenarPorMatricula() {
+    public void ordenarBBDD() {
         recuperarLista();
-        Collections.sort(listaCoches);
-        volcarLista();
-        System.out.println("La BBDD ha sido ordenada por matricula (asc)");
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        System.out.println(" ¿Cómo desea ordenar la BBDD? ");
+        System.out.println("1. Ordenar por matricula");
+        System.out.println("2. Ordenar por Marca");
+        System.out.println("3. Ordenar por Modelo");
+        opcion =  Integer.parseInt(sc.nextLine());
+        //Usando estas expresiones lambda, comparo según lo que pida el usuario para ordenarlo.
+        switch (opcion) {
+            case 1:
+                Collections.sort(listaCoches, Comparator.comparing(Coche::getMatricula));
+                volcarLista();
+                break;
+            case 2:
+                Collections.sort(listaCoches, Comparator.comparing(Coche::getMarca));
+                volcarLista();
+                break;
+            case 3:
+                Collections.sort(listaCoches, Comparator.comparing(Coche::getModelo));
+                volcarLista();
+                break;
+            default:
+                System.out.println("Opción no válida. Por favor, selecciona una opción válida.");
+        }
+
+        System.out.println("La BBDD ha sido ordenada");
     }
 
     /**

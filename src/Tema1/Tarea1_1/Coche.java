@@ -32,16 +32,16 @@ public class Coche implements Comparable<Coche>{
                 '}';
     }
 
-    @Override
-    public int compareTo(Coche otroCoche) {
-        return this.matricula.compareTo(otroCoche.matricula);
-    }
-
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    @Override
+    public int compareTo(Coche o) {
+        return 0;
     }
 }

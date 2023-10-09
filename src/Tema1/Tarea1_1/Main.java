@@ -14,10 +14,10 @@ public class Main {
             System.out.println(" ___MENÚ___ ");
             System.out.println("1. Cargar fichero CSV");
             System.out.println("2. Insertar nuevo coche");
-            System.out.println("3. Ordenar BD por matrícula");
+            System.out.println("3. Ordenar BD");
             System.out.println("4. Borrar un registro");
             System.out.println("5. Modificar marca o modelo");
-            System.out.println("6. ver lista");
+            System.out.println("6. Ver lista y BBDD");
             System.out.println("7. Salir");
 
             opcion = scanner.nextInt();
@@ -30,7 +30,7 @@ public class Main {
                     concesionario.insertarCoche();
                     break;
                 case 3:
-                    concesionario.ordenarPorMatricula();
+                    concesionario.ordenarBBDD();
                     break;
                 case 4:
                     concesionario.borrarRegistroPorMatriculaOPosicion();
