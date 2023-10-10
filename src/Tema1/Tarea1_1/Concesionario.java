@@ -15,17 +15,26 @@ public class Concesionario {
         this.fichero = archivo;
         //Calculo el numRegistros dividiendo por el num de bytes que tiene cada registro.
         this.numRegistros = (int) (this.fichero.length() / 71);
-
     }
 
     /**
-     *
+     * Este método recupera una lista basada en nuestro archivo .dat, pide por entrada de teclado al usuario la posición
+     * del coche que desea modificar, mostrando antes una lista de los coches de nuestro fichero .dat e indicando su posición,
+     * para comodidad del usuario, luego comprueba que la posición no salga de los límites de nuestra LinkedList,
+     * después pide que nos devuelva el objeto de la lista que se corresponde con esa posición y se pide al usuario
+     * que introduzca la nueva marca y modelo del vehículo.
+     * Usando los setters de la clase Coche los modifica y volcamos de nuevo la lista en nuestro
+     * archivo.
+     * Si la posición indicada no es válida se lo indicamos al usuario con un mensaje por consola y limpiamos la lista
+     * para dejarla lista para otras operaciones.
      */
     public void modificarRegistroPorPosicion() {
         recuperarLista();
         Scanner sc = new Scanner(System.in);
+        System.out.println("Lista de vehículos: ");
+        mostrarDatosDeArchivoDat();
 
-        System.out.println("Introduzca la posición del vehiculo que desea modificar: ");
+        System.out.println("\nIntroduzca la posición del vehiculo que desea modificar: ");
         int pos = Integer.parseInt(sc.nextLine());
 
         //Comprobamos que la posición sea válida como en nuestro método de Insertar
@@ -51,7 +60,19 @@ public class Concesionario {
     }
 
     /**
-     *
+     * Este método primero recupera una LinkedList formada por los datos del fichero .dat.
+     * Luego pedimos por entrada de teclado al usuario cómo quiere buscar el vehículo que va a eliminar, si por posición
+     * o por matrícula, también dando una opción de salida por si el usuario se equivocó en el menú de opciones.
+     * -Al buscarlo por posición, muestra una lista de nuestro fichero .dat indicando sus posiciones para comodidad del
+     * usuario, luego comprobamos que es una posición válida y luego eliminamos el registro de esa posición
+     * con el método remove de linkedList indicándole dicha posición, acto seguido volvemos a volcar nuestra linkedList.
+     * Avisamos al usuario con un mensaje por consola tanto si se ha borrado el vehículo de la posición indicada como
+     * si no se ha podido encontrar dicha posición.
+     * -Al buscarlo por matrícula, creo un booleano para comprobar si se ha encontrado o no, utilizando un método
+     * buscarCoche() que devuelve true o false (explicado en su código más abajo). Si no lo encuentra avisa al usuario
+     * con un mensaje por consola, si lo encuentra crea un Iterator con nuestra lista, la recorre para buscar el coche
+     * el cual contenga esa matrícula y lo remueve. Vuelve a volcar nuestra lista en el archivo y se notifica al usuario
+     * con un mensaje por consola de que el vehículo con la matrícula introducida se ha eliminado.
      */
     public void borrarRegistroPorMatriculaOPosicion() {
         recuperarLista();
@@ -60,11 +81,13 @@ public class Concesionario {
         System.out.println("Como desea buscar el vehiculo a eliminar? ");
         System.out.println("1. Por posición ");
         System.out.println("2. Por matricula ");
-        System.out.println("3. Salir ");
+        System.out.println("3. Volver al menú principal");
         opcion = Integer.parseInt(sc.nextLine());
         switch (opcion) {
             case 1:
-                System.out.println("Introduzca la posición del vehiculo que desea borrar: ");
+                System.out.println("Lista de vehículos: ");
+                mostrarDatosDeArchivoDat();
+                System.out.println("\nIntroduzca la posición del vehiculo que desea borrar: ");
                 int pos = sc.nextInt();
 
                 //Comprobamos que la posición sea válida como en nuestro método de Insertar
@@ -72,6 +95,8 @@ public class Concesionario {
                     listaCoches.remove(pos);
 
                     System.out.println("El vehiculo de la posición " + pos + " se ha eliminado");
+                    //Borro el contenido del fichero dat antes de escribirlo de nuevo.
+                    borrarBBDD();
                     volcarLista();
                 } else {
                     System.out.println("La posición indicada no es válida.");
@@ -92,24 +117,37 @@ public class Concesionario {
                     while (iterator.hasNext()) {
                         Coche coche = iterator.next();
                         if (coche.getMatricula().equals(matricula)) {
-                            iterator.remove(); // Eliminamos el coche de la lista
+                            // Eliminamos el coche de la lista
+                            iterator.remove();
                             System.out.println("El vehiculo con matrícula " + matricula + " se ha eliminado.");
+                            //Borro el contenido del fichero dat antes de escribirlo de nuevo.
+                            borrarBBDD();
                             volcarLista();
-                            break; //Paramos si lo hemos encontrado
+                            break;
                         }
                     }
                 }
                 volcarLista();
                 break;
+            case 3:
+                System.out.println("Volviendo al menú principal...");
+                break;
             default:
                 System.out.println("Opción no válida. Por favor, selecciona una opción válida (1, 2 o 3)");
+                System.out.println("Volviendo al menú principal...");
         }
 
 
     }
 
     /**
-     *
+     * Este método recupera una lista basada en nuestro archivo .dat, luego pedimos al usuario cómo quiere ordenar la
+     * BBDD, indicándole cuáles son los campos por los que puede ordenar.
+     * Usando expresiones lambda llamaremos al método .sort de nuestra lista y comparamos el campo indicado con un Comparator.
+     * Para ello hemos implementado la interfaz Comparable en nuestra clase Coche.java.
+     * Estas expresiones nos comparan según el campo indicado y reordenan la lista, acto seguido volcamos
+     * nuestra lista en el fichero.
+     * También damos una opción al usuario para salir por si no quiere hacer modificaciones.
      */
     public void ordenarBBDD() {
         recuperarLista();
@@ -119,30 +157,38 @@ public class Concesionario {
         System.out.println("1. Ordenar por matricula");
         System.out.println("2. Ordenar por Marca");
         System.out.println("3. Ordenar por Modelo");
-        opcion =  Integer.parseInt(sc.nextLine());
+        System.out.println("4. Volver al menú principal");
+        opcion = Integer.parseInt(sc.nextLine());
         //Usando estas expresiones lambda, comparo según lo que pida el usuario para ordenarlo.
         switch (opcion) {
             case 1:
-                Collections.sort(listaCoches, Comparator.comparing(Coche::getMatricula));
+                listaCoches.sort(Comparator.comparing(Coche::getMatricula));
                 volcarLista();
                 break;
             case 2:
-                Collections.sort(listaCoches, Comparator.comparing(Coche::getMarca));
+                listaCoches.sort(Comparator.comparing(Coche::getMarca));
                 volcarLista();
                 break;
             case 3:
-                Collections.sort(listaCoches, Comparator.comparing(Coche::getModelo));
+                listaCoches.sort(Comparator.comparing(Coche::getModelo));
                 volcarLista();
+                break;
+            case 4:
+                System.out.println("Volviendo al menú principal...");
                 break;
             default:
                 System.out.println("Opción no válida. Por favor, selecciona una opción válida.");
+                System.out.println("Volviendo al menú principal...");
         }
 
         System.out.println("La BBDD ha sido ordenada");
     }
 
     /**
-     *
+     * Este método nos recupera la linkedList basada en el archivo .bat, nos pide los datos del nuevo coche y tras comprobar
+     * que la matrícula no se repite, lo inserta en la lista y la vuelva en el archivo.
+     * También se pide la posición en la que el usuario quiere insertarlo, comprobando que sea posible.
+     * Si la matrícula se repite se avisará al usuario con un mensaje en la consola.
      */
     public void insertarCoche() {
         recuperarLista();
@@ -184,7 +230,16 @@ public class Concesionario {
     }
 
     /**
-     *
+     * En este método vamos a coger los datos de un fichero .csv y pasarlos a una linkedList, para posteriormente volcar
+     * esa lista en nuestro fichero .dat.
+     * Primero creo un boolean que me compruebe si se ha añadido al menos 1 coche, ya que si se ejecuta la carga varias
+     * veces puede dar resultados redundantes.
+     * Inicializamos un objeto de tipo coche el cual vamos a asignarle los parámetros más adelante y leemos nuestro
+     * fichero .csv con un bufferedReader.
+     * Nos saltamos la primera línea que contiene el índice de los campos.
+     * Separamos los campos (vienen separados con comas), y creamos un objeto de Coche con esos campos, luego lo
+     * insertamos en nuestra lista y al terminar el documento la volcamos al .dat.
+     * Si no se ha añadido ningún coche porque ya se encontraba en el archivo, se avisará al usuario.
      */
     public void cargarCVS() {
         boolean cocheAnhadido = false;
@@ -226,7 +281,12 @@ public class Concesionario {
     }
 
     /**
-     *
+     * Este método accede a nuestro fichero .dat y sobreescribe sus datos, por ello siempre antes de llamarlo debemos
+     * llamar al método recuperarLista().
+     * Usando bucle vamos recorriendo la lista y realizando un format de Strings para que los campos tengan siempre
+     * el tamaño de bytes deseado, aúnque sean más cortos en realidad.
+     * Cuando termina de escribir en el archivo limpia la linkedList para que no haya problemas de duplicidad.
+     * Siempre que actualicemos el fichero .dat avisaremos por consola de que la BBDD se ha actualizado.
      */
     public void volcarLista() {
         try (RandomAccessFile raf = new RandomAccessFile("BBDDCoches.dat", "rw")) {
@@ -248,7 +308,14 @@ public class Concesionario {
     }
 
     /**
-     *
+     * Este método lee nuestro fichero .dat y lo vuelca en una linkedList, separando por el número de bytes los campos de
+     * cada objeto Coche.
+     * Esta linkedList es donde realizamos nuestras operaciones, no en el fichero.
+     * La matrícula son 7 bytes, la marca 32 bytes y el modelo 32 bytes, haciendo una suma total de 71 bytes.
+     * Creamos array de bytes de 71 para ir sacando de registro en registro, indicándole luego el num de bytes de ese buffer
+     * que pertenece a cada campo y asignándolo, para posteriormente crear el objeto con esos campos y añadirlo a la lista.
+     * No comprueba que haya campos repetidos, ya que no hay manera de que en nuestro fichero .dat los haya, porque lo
+     * controlamos a la hora de insertarlos.
      */
     public void recuperarLista() {
         try (FileInputStream fileInputStream = new FileInputStream(new File("BBDDCoches.dat"))) {
@@ -269,8 +336,11 @@ public class Concesionario {
     }
 
     /**
-     * @param matricula
-     * @return
+     * Este método recupera los datos del archivo .dat y crea un iterator, con el cual la recorre buscando una matrícula
+     * que sea equals que la que se le ha proporcionado por parámetro.
+     *
+     * @param matricula - Matrícula proporcionada por el usuario para buscar el vehículo.
+     * @return - True si lo ha encontrado, false si no se encuentra la matrícula en la lista.
      */
     public boolean buscarCoche(String matricula) {
         recuperarLista();
@@ -287,7 +357,7 @@ public class Concesionario {
     }
 
     /**
-     *
+     * Este método es opcional y lo he creado para comprobar el comportamiento de la linkedList.
      */
     public void verLista() {
         recuperarLista();
@@ -295,21 +365,36 @@ public class Concesionario {
         for (Coche coche : listaCoches) {
             System.out.println(coche);
         }
-        listaCoches.clear();
     }
 
     /**
-     *
+     * Este método borra el contenido de la BBDD para que no haya problemas de duplicado de campos al borrar un registro.
+     */
+    public void borrarBBDD() {
+        try {
+            // Abre el archivo en modo de escritura sin anexar (esto borrará su contenido)
+            FileOutputStream archivoSalida = new FileOutputStream("BBDDCoches.dat");
+            // Cierra el archivo
+            archivoSalida.close();
+        } catch (IOException e) {
+            System.err.println("Error al borrar el contenido del archivo: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Este método muestra por consola todos los campos de todos los registros guardados en nuestro fichero .dat, para que
+     * el usuario pueda verificarlos cuando quiera sin tener que acceder al fichero.
+     * Este método es opcional y solo lo he añadido por comodidad.
      */
     public void mostrarDatosDeArchivoDat() {
         try (FileInputStream fileInputStream = new FileInputStream(new File("BBDDCoches.dat"))) {
             byte[] buffer = new byte[71];
             int bytesLeidos;
-            int linea = 1; // Variable para contar las líneas
+            int linea = 0; // Variable para contar las líneas
 
             while ((bytesLeidos = fileInputStream.read(buffer)) != -1) {
                 String bloque = new String(buffer, 0, bytesLeidos);
-                System.out.println("Línea " + linea + ": " + bloque);
+                System.out.println("Posición " + linea + ": " + bloque);
                 linea++;
             }
         } catch (IOException e) {

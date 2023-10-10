@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="Terminado casi todos los metodos, falta corregir el metodo borrar y documentar">
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="Terminado metodo de cargar CSV y volcar lista">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BBDDCoches.dat" beforeDir="false" afterPath="$PROJECT_DIR$/BBDDCoches.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Coche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Coche.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Main.java" afterDir="false" />
     </list>
@@ -89,6 +88,7 @@
       <workItem from="1696677960160" duration="11000" />
       <workItem from="1696832515123" duration="2354000" />
       <workItem from="1696834911223" duration="2388000" />
+      <workItem from="1696935206891" duration="2124000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
