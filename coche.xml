@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<coches>
+    <coche Matricula="4857TTR">
+        <marca>Ford</marca>
+        <modelo>Fiesta</modelo>
+    </coche>
+    <coche Matricula="8798UIO">
+        <marca>Toyota</marca>
+        <modelo>Corolla</modelo>
+    </coche>
+</coches>

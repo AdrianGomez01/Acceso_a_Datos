@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="Terminado metodo de cargar CSV y volcar lista">
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="Terminado">
+      <change afterPath="$PROJECT_DIR$/coche.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/BbddCoches.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Coche.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BBDDCoches.dat" beforeDir="false" afterPath="$PROJECT_DIR$/BBDDCoches.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Concesionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema1/Tarea1_1/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +91,8 @@
       <workItem from="1696677960160" duration="11000" />
       <workItem from="1696832515123" duration="2354000" />
       <workItem from="1696834911223" duration="2388000" />
-      <workItem from="1696935206891" duration="2124000" />
+      <workItem from="1696935206891" duration="6168000" />
+      <workItem from="1697178371745" duration="5374000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
@@ -146,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696881847239</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Terminado">
+      <option name="closed" value="true" />
+      <created>1696937367833</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696937367833</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +173,8 @@
     <MESSAGE value="remake 1.1" />
     <MESSAGE value="MIS MUERTO" />
     <MESSAGE value="Terminado casi todos los metodos, falta corregir el metodo borrar y documentar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminado casi todos los metodos, falta corregir el metodo borrar y documentar" />
+    <MESSAGE value="Terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminado" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

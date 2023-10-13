@@ -75,6 +75,7 @@ public class Concesionario {
      * con un mensaje por consola de que el vehículo con la matrícula introducida se ha eliminado.
      */
     public void borrarRegistroPorMatriculaOPosicion() {
+        listaCoches.clear();
         recuperarLista();
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -150,6 +151,7 @@ public class Concesionario {
      * También damos una opción al usuario para salir por si no quiere hacer modificaciones.
      */
     public void ordenarBBDD() {
+        listaCoches.clear();
         recuperarLista();
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -191,6 +193,7 @@ public class Concesionario {
      * Si la matrícula se repite se avisará al usuario con un mensaje en la consola.
      */
     public void insertarCoche() {
+        listaCoches.clear();
         recuperarLista();
         Scanner sc = new Scanner(System.in);
 
