@@ -1,11 +1,11 @@
-package Tema2;
+package Tema2.Marshalling;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name="coches")
+@XmlRootElement(name = "coches")
 public class BbddCoches {
 
     private List<Coche> coches;
@@ -14,7 +14,7 @@ public class BbddCoches {
         this.coches = new ArrayList<>();
     }
 
-    @XmlElement(name="coche")
+    @XmlElement(name = "coche")
     public List<Coche> getCoches() {
         return coches;
     }

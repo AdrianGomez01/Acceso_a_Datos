@@ -1,11 +1,10 @@
-package Tema2;
+package Tema2.Marshalling;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.io.StringWriter;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {

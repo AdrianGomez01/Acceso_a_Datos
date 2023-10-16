@@ -1,4 +1,4 @@
-package Tema2;
+package Tema2.Unmarshalling;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -6,12 +6,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class Coche {
-    public Coche() {
+public class CocheUn {
+    public CocheUn() {
 
     }
 
-    public Coche(String matricula, String marca, String modelo) {
+    public CocheUn(String matricula, String marca, String modelo) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
