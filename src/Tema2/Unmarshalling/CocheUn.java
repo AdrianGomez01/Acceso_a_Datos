@@ -7,6 +7,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class CocheUn {
+
+    private String matricula;
+    private String marca;
+    private String modelo;
+
+
     public CocheUn() {
 
     }
@@ -17,12 +23,8 @@ public class CocheUn {
         this.modelo = modelo;
     }
 
-    private String matricula;
-    private String marca;
-    private String modelo;
 
-
-    @XmlAttribute(name = "Matricula")
+    @XmlAttribute
     public String getMatricula() {
         return matricula;
     }

@@ -1,0 +1,17 @@
+ID: bk101
+Autor: Garghentini, Davide
+TÃ­tulo: XML Developer's Guide
+GÃ©nero: Computer
+Precio: 44.95
+Fecha de publicaciÃ³n: Sun Oct 01 00:00:00 CEST 2000
+DescripciÃ³n: An in-depth look at creating applications
+            with XML.
+ID: bk102
+Autor: Garcia, Debra
+TÃ­tulo: Midnight Rain
+GÃ©nero: Fantasy
+Precio: 5.95
+Fecha de publicaciÃ³n: Sat Dec 16 00:00:00 CET 2000
+DescripciÃ³n: A former architect battles corporate zombies,
+            an evil sorceress, and her own childhood to become queen
+            of the world.
