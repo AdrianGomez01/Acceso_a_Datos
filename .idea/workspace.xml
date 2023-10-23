@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="ejemplo de unmashalling">
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p2/Catalogo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p2/Libro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p2/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p2/books.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p2/libros.txt" afterDir="false" />
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="act tema 2 1.2">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20220924.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act3/Juego.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act3/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tema2/Unmarshalling/BbddCochesUn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Unmarshalling/BbddCochesUn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tema2/Unmarshalling/CocheUn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Unmarshalling/CocheUn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Acceso a Datos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Acceso a Datos.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +46,12 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/adrik/Desktop/2 DAM/Acceso a Datos/Tareas/ejemploTabajandoConJAXB/json-20220924.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -121,7 +120,10 @@
       <workItem from="1697178371745" duration="5516000" />
       <workItem from="1697184356813" duration="593000" />
       <workItem from="1697437395622" duration="3466000" />
-      <workItem from="1697540121657" duration="5044000" />
+      <workItem from="1697540121657" duration="5069000" />
+      <workItem from="1697709208075" duration="600000" />
+      <workItem from="1697717504180" duration="4000" />
+      <workItem from="1698042811303" duration="2206000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
@@ -203,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697440896316</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="act tema 2 1.2">
+      <option name="closed" value="true" />
+      <created>1697546242515</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697546242515</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +231,8 @@
     <MESSAGE value="Terminado" />
     <MESSAGE value="Empezado Tema 2, manejo de XML" />
     <MESSAGE value="ejemplo de unmashalling" />
-    <option name="LAST_COMMIT_MESSAGE" value="ejemplo de unmashalling" />
+    <MESSAGE value="act tema 2 1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="act tema 2 1.2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

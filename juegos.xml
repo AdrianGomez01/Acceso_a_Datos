@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<juego>
+    <nombre>FIFA 14</nombre>
+    <tipo>PC</tipo>
+    <genero>DEPORTES</genero>
+    <proceso>fifa14</proceso>
+    <edad>3+</edad>
+    <descripcion>Juego de furbo</descripcion>
+</juego>
