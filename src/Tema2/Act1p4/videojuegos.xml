@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Videojuegos>
+    <Videojuego Identificador="12AB3">
+        <Titulo>Hollow Knight</Titulo>
+        <Genero>Metroidvania</Genero>
+        <Desarrolladora>Team Cherry</Desarrolladora>
+        <PEGI>E</PEGI>
+        <Plataformas>All</Plataformas>
+        <Precio>15.50€</Precio>
+    </Videojuego>
+    <Videojuego Identificador="43C3Q">
+        <Titulo>Elden Ring</Titulo>
+        <Genero>Soulslike</Genero>
+        <Desarrolladora>From Software</Desarrolladora>
+        <PEGI>16</PEGI>
+        <Plataformas>All</Plataformas>
+        <Precio>59.99€</Precio>
+    </Videojuego>
+</Videojuegos>

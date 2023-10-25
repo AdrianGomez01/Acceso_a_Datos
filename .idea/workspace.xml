@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="act tema 2 1.2">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20220924.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/juegos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act3/Juego.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/adrik.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_202209241.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/BbddVideojuegos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/Videojuego.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/videojuegos.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/videojuegos.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Acceso a Datos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Acceso a Datos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tema2/Act3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act3/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/adrik/Desktop/2 DAM/Acceso a Datos/Tareas/ejemploTabajandoConJAXB/json-20220924.jar",
+    "last_opened_file_path": "C:/Users/adrik/IdeaProjects/Acceso_a_Datos/src/Tema2/Act1p4",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +64,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\adrik\IdeaProjects\Acceso_a_Datos\src\Tema2\Act1p4" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\adrik\Desktop\2 DAM\Acceso a Datos\Acceso a Datos\src\Tema2\Act1p2" />
     </key>
@@ -124,6 +131,9 @@
       <workItem from="1697709208075" duration="600000" />
       <workItem from="1697717504180" duration="4000" />
       <workItem from="1698042811303" duration="2206000" />
+      <workItem from="1698160168600" duration="124000" />
+      <workItem from="1698161387487" duration="45000" />
+      <workItem from="1698255903786" duration="3729000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />
