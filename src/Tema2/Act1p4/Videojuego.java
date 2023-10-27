@@ -28,9 +28,14 @@ public class Videojuego {
         this.plataformas = plataformas;
         this.precio = precio;
     }
+
     @XmlAttribute(name = "Identificador")
     public String getIdentificador() {
-        return identificador;
+        return this.identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
     }
 
     @XmlElement

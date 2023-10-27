@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="act tema 2 1.2">
+    <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="Comenzada tarea 1.4">
+      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/BbddJuegosJSON.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/juegos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegosJSON.json" beforeDir="false" afterPath="$PROJECT_DIR$/juegosJSON.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/BbddVideojuegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/BbddVideojuegos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/Videojuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/Videojuego.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/videojuegos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/videojuegos.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +132,7 @@
       <workItem from="1698160168600" duration="124000" />
       <workItem from="1698161387487" duration="45000" />
       <workItem from="1698255903786" duration="3729000" />
+      <workItem from="1698439055996" duration="8563000" />
     </task>
     <task id="LOCAL-00001" summary="primer ejemplo">
       <option name="closed" value="true" />

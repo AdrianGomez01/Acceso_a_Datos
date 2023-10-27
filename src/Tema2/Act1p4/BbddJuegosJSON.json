@@ -1,0 +1,20 @@
+{"Videojuegos": {"videojuegos": [
+       {
+              "precio": "15.50\u20ac",
+              "pegi": "E",
+              "plataformas": "All",
+              "desarrolladora": "Team Cherry",
+              "genero": "Metroidvania",
+              "titulo": "Hollow Knight",
+              "Identificador": "12AB3"
+       },
+       {
+              "precio": "59.99\u20ac",
+              "pegi": 16,
+              "plataformas": "All",
+              "desarrolladora": "From Software",
+              "genero": "Soulslike",
+              "titulo": "Elden Ring",
+              "Identificador": "43C3Q"
+       }
+]}}
