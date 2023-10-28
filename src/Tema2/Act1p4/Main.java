@@ -9,8 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        bbddVideojuegos.recuperarLista();
-
         while (true) {
             System.out.println("Menú Principal");
             System.out.println("1. Cargar videojuegos desde CSV a XML");
@@ -37,15 +35,19 @@ public class Main {
                     break;
                 case 3:
                     // Lógica para ordenar por Identificador
+                    bbddVideojuegos.ordenarPorIdentificador();
                     break;
                 case 4:
                     // Lógica para borrar un videojuego por Identificador
+                    bbddVideojuegos.borrarPorIdentificador();
                     break;
                 case 5:
                     // Lógica para modificar un videojuego por Identificador
+                    bbddVideojuegos.modificarVideojuegoPorIdentificador();
                     break;
                 case 6:
                     // Lógica para exportar a XML o JSON por Identificador
+
                     break;
                 case 7:
                     // Lógica para convertir XML a JSON

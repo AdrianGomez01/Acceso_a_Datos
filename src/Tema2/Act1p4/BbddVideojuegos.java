@@ -1,5 +1,6 @@
 package Tema2.Act1p4;
 
+import Tema1.Tarea1_1.Coche;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
@@ -10,10 +11,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @XmlRootElement(name = "Videojuegos")
 public class BbddVideojuegos {
@@ -35,6 +33,7 @@ public class BbddVideojuegos {
 
 
     public void cargarCSV() {
+        recuperarLista();
         boolean juegoAnhadido = false;
         Videojuego juego = null;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/Tema2/Act1p4/videojuegos.csv"))) {
@@ -47,7 +46,6 @@ public class BbddVideojuegos {
                     continue;
                 }
 
-
                 String[] parts = linea.split(",");
                 String identificador = parts[0];
                 String titulo = parts[1];
@@ -58,7 +56,7 @@ public class BbddVideojuegos {
                 String precio = parts[6];
                 juego = new Videojuego(identificador, titulo, genero, desarrolladora, pegi, plataforma, precio);
                 //Si se encuentra un identificador que coincida no añado el juego.
-                if (comprobarId(identificador)) {
+                if (!comprobarId(identificador)) {
                     videojuegos.add(juego);
                     juegoAnhadido = true;
                 }
@@ -71,7 +69,6 @@ public class BbddVideojuegos {
             volcarLista();
         } else {
             System.out.println("Todos los videojuegos ya se encuentran en la base de datos");
-            //videojuegos.clear();
         }
     }
 
@@ -91,19 +88,28 @@ public class BbddVideojuegos {
     }
 
     private boolean comprobarId(String identificador) {
-        try {
-            File f = new File("src/Tema2/Act1p4/videojuegos.xml");
-            JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-
-            BbddVideojuegos juego = (BbddVideojuegos) unmarshaller.unmarshal(f);
-
-            boolean idUnico = this.videojuegos.stream().noneMatch(videojuego -> videojuego.getIdentificador() == identificador);
-
-            return !idUnico;
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
+        Iterator<Videojuego> iterator = videojuegos.iterator();
+        while (iterator.hasNext()) {
+            Videojuego juego = iterator.next();
+            if (juego.getIdentificador().equals(identificador)) {
+                //Si lo encontramos devolvemos true.
+                return true;
+            }
         }
+//        try {
+//            File f = new File("src/Tema2/Act1p4/videojuegos.xml");
+//            JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
+//            Unmarshaller unmarshaller = context.createUnmarshaller();
+//
+//            BbddVideojuegos juego = (BbddVideojuegos) unmarshaller.unmarshal(f);
+//
+//            boolean idUnico = this.videojuegos.stream().noneMatch(videojuego -> videojuego.getIdentificador() == identificador);
+//
+//            return !idUnico;
+//        } catch (JAXBException e) {
+//            throw new RuntimeException(e);
+//        }
+        return false;
     }
 
     public void recuperarLista() {
@@ -114,40 +120,42 @@ public class BbddVideojuegos {
             BbddVideojuegos juego = (BbddVideojuegos) unmarshaller.unmarshal(f);
             this.videojuegos = juego.getVideojuegos();
 
-//            for (Videojuego juegos : this.videojuegos) {
-//                System.out.println("Identificador: " + juegos.getIdentificador());
-//                System.out.println("Titulo: " + juegos.getTitulo());
-//            }
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void insertarJuego() {
+        recuperarLista();
+
         System.out.println("Introduzca el identificador del videojuego");
-        String identificador = Main.sc.nextLine();
+        String identificador = Main.sc.nextLine().toUpperCase();
         if (identificador.length() == 5) {
-            System.out.println("Introduzca el titulo del videojuego");
-            String titulo = Main.sc.nextLine();
-            System.out.println("Introduzca el genero del videojuego");
-            String genero = Main.sc.nextLine();
-            System.out.println("Introduzca la desarrolladora del videojuego");
-            String desarrolladora = Main.sc.nextLine();
-            System.out.println("Introduzca el PEGI del videojuego");
-            String pegi = Main.sc.nextLine();
-            System.out.println("Introduzca las plataformas del videojuego");
-            String plataformas = Main.sc.nextLine();
-            System.out.println("Introduzca el precio del videojuego");
-            String precio = Main.sc.nextLine();
-            Videojuego videojuego = new Videojuego(identificador, titulo, genero, desarrolladora, pegi, plataformas, precio);
-            videojuegos.add(videojuego);
-            volcarLista();
+            if (!comprobarId(identificador)) {
+                System.out.println("Introduzca el titulo del videojuego");
+                String titulo = Main.sc.nextLine();
+                System.out.println("Introduzca el genero del videojuego");
+                String genero = Main.sc.nextLine();
+                System.out.println("Introduzca la desarrolladora del videojuego");
+                String desarrolladora = Main.sc.nextLine();
+                System.out.println("Introduzca el PEGI del videojuego");
+                String pegi = Main.sc.nextLine();
+                System.out.println("Introduzca las plataformas del videojuego");
+                String plataformas = Main.sc.nextLine();
+                System.out.println("Introduzca el precio del videojuego");
+                String precio = Main.sc.nextLine();
+                Videojuego videojuego = new Videojuego(identificador, titulo, genero, desarrolladora, pegi, plataformas, precio);
+                videojuegos.add(videojuego);
+                volcarLista();
+            } else {
+                System.out.println("Error, el identificador ya se encuentra en la BBDD y debe ser único.");
+            }
         } else {
             System.out.println("Error, el identificador debe contener 5 carácteres");
         }
     }
 
-    public void pasarXMLaJSON(){
+    public void pasarXMLaJSON() {
         recuperarLista();
         try {
             JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
@@ -173,5 +181,90 @@ public class BbddVideojuegos {
         }
     }
 
+    public void ordenarPorIdentificador() {
+        recuperarLista();
+        videojuegos.sort(Comparator.comparing(Videojuego::getIdentificador));
+        volcarLista();
+        System.out.println("Fichero ordenado por el campo Identificador");
+    }
 
+    public void borrarPorIdentificador() {
+        recuperarLista();
+        System.out.println("Lista de juegos en su XML: \n");
+        mostrarLista();
+        System.out.println("Introduzca el Identificador del juego que desa borrar:");
+        String id = Main.sc.nextLine().toUpperCase();
+
+        boolean juegoEncontrado = comprobarId(id);
+
+        if (juegoEncontrado) {
+            Iterator<Videojuego> iterator = videojuegos.iterator();
+            while (iterator.hasNext()) {
+                Videojuego videojuego = iterator.next();
+                if (videojuego.getIdentificador().equals(id)) {
+                    iterator.remove();
+                    System.out.println("El videojuego " + videojuego.getTitulo() + " con identificador " + id + " se ha eliminado.");
+                    volcarLista();
+                    break;
+                }
+            }
+        } else {
+            System.out.println("No se ha encontrado el juego con el Identificador introducido");
+        }
+    }
+
+    public void mostrarLista() {
+        for (Videojuego juegos : this.videojuegos) {
+            System.out.println("Identificador: " + juegos.getIdentificador());
+            System.out.println("Titulo: " + juegos.getTitulo() + "\n");
+        }
+    }
+
+    public Videojuego buscarVideojuegoPorIdentificador(String identificador) {
+        for (Videojuego videojuego : videojuegos) {
+            if (videojuego.getIdentificador().equals(identificador)) {
+                return videojuego;
+            }
+        }
+        return null;
+    }
+
+    public void modificarVideojuegoPorIdentificador() {
+        recuperarLista();
+        System.out.println("Lista de juegos en su XML: \n");
+        mostrarLista();
+        System.out.println("Introduzca el Identificador del juego que desa modificar:");
+        String id = Main.sc.nextLine().toUpperCase();
+
+        Videojuego videojuego = buscarVideojuegoPorIdentificador(id);
+
+        if (videojuego != null) {
+            System.out.println("Introduzca el nuevo titulo del videojuego");
+            String nuevoTitulo = Main.sc.nextLine();
+            System.out.println("Introduzca el nuevo genero del videojuego");
+            String nuevoGenero = Main.sc.nextLine();
+            System.out.println("Introduzca la nuevo desarrolladora del videojuego");
+            String nuevaDesarrolladora = Main.sc.nextLine();
+            System.out.println("Introduzca el nuevo PEGI del videojuego");
+            String nuevoPegi = Main.sc.nextLine();
+            System.out.println("Introduzca las nuevas plataformas del videojuego");
+            String nuevasPlataformas = Main.sc.nextLine();
+            System.out.println("Introduzca el nuevo precio del videojuego");
+            String nuevoPrecio = Main.sc.nextLine();
+
+            videojuego.setTitulo(nuevoTitulo);
+            videojuego.setGenero(nuevoGenero);
+            videojuego.setDesarrolladora(nuevaDesarrolladora);
+            videojuego.setPegi(nuevoPegi);
+            videojuego.setPlataformas(nuevasPlataformas);
+            videojuego.setPrecio(nuevoPrecio);
+
+            System.out.println("El videojuego con identificador " + id + " se ha modificado.");
+            volcarLista();
+
+        } else {
+            System.out.println("Error, no se ha encontrado el videojuego por el identificador introducido");
+        }
+
+    }
 }
