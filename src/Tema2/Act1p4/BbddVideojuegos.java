@@ -1,7 +1,5 @@
 package Tema2.Act1p4;
 
-import Tema1.Tarea1_1.Coche;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
 
@@ -62,7 +60,7 @@ public class BbddVideojuegos {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error, no se encuentra el fichero csv" + e.getMessage());
         }
         //Compruebo que se haya añadido al menos 1 juego, de lo contrario vaciamos la lista y avisamos al usuario.
         if (juegoAnhadido) {
@@ -96,19 +94,6 @@ public class BbddVideojuegos {
                 return true;
             }
         }
-//        try {
-//            File f = new File("src/Tema2/Act1p4/videojuegos.xml");
-//            JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
-//            Unmarshaller unmarshaller = context.createUnmarshaller();
-//
-//            BbddVideojuegos juego = (BbddVideojuegos) unmarshaller.unmarshal(f);
-//
-//            boolean idUnico = this.videojuegos.stream().noneMatch(videojuego -> videojuego.getIdentificador() == identificador);
-//
-//            return !idUnico;
-//        } catch (JAXBException e) {
-//            throw new RuntimeException(e);
-//        }
         return false;
     }
 
@@ -174,10 +159,8 @@ public class BbddVideojuegos {
             FileOutputStream fos = new FileOutputStream("src/Tema2/Act1p4/BbddjuegosJSON.json");
             fos.write(jo.toString(7).getBytes());
             fos.close();
-        } catch (JAXBException | FileNotFoundException e) {
+        } catch (JAXBException | IOException e) {
             throw new RuntimeException(e);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
         }
     }
 
@@ -233,7 +216,7 @@ public class BbddVideojuegos {
         recuperarLista();
         System.out.println("Lista de juegos en su XML: \n");
         mostrarLista();
-        System.out.println("Introduzca el Identificador del juego que desa modificar:");
+        System.out.println("Introduzca el Identificador del juego que desea modificar:");
         String id = Main.sc.nextLine().toUpperCase();
 
         Videojuego videojuego = buscarVideojuegoPorIdentificador(id);
@@ -264,6 +247,58 @@ public class BbddVideojuegos {
 
         } else {
             System.out.println("Error, no se ha encontrado el videojuego por el identificador introducido");
+        }
+    }
+
+    public void exportarJuegoXMLoJSON() {
+        recuperarLista();
+        System.out.println("Lista de juegos en su XML: \n");
+        mostrarLista();
+        System.out.println("Introduzca el Identificador del juego que desea exportar:");
+        String id = Main.sc.nextLine().toUpperCase();
+
+        Videojuego videojuego = buscarVideojuegoPorIdentificador(id);
+
+        System.out.println("¿En qué formato desea exportar el videojuego?");
+        System.out.println("1. XML");
+        System.out.println("2. JSON");
+
+        int opcion = Main.sc.nextInt();
+        Main.sc.nextLine(); // Consumir el salto de línea
+
+        switch (opcion) {
+            case 1:
+                //XML
+                try {
+                    JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
+                    Marshaller marshaller = context.createMarshaller();
+                    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+                    marshaller.marshal(videojuego, new File("src/Tema2/Act1p4/MiVideojuego.xml"));
+                    System.out.println("Videojuego guardado en el archivo MiVideojuego.xml");
+                } catch (JAXBException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case 2:
+                //JSON
+                try {
+                    JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
+                    Marshaller marshaller = context.createMarshaller();
+                    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+                    StringWriter writer = new StringWriter();
+                    marshaller.marshal(videojuego, writer);
+                    String xml = writer.toString();
+                    JSONObject jo = XML.toJSONObject(xml);
+                    FileOutputStream fos = new FileOutputStream("src/Tema2/Act1p4/MiVideojuego.json");
+                    fos.write(jo.toString(7).getBytes());
+                    fos.close();
+                    System.out.println("Videojuego guardado en el archivo MiVideojuego.json");
+                } catch (JAXBException | IOException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            default:
+                System.out.println("Opción no válida.");
         }
 
     }

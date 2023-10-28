@@ -47,7 +47,7 @@ public class Main {
                     break;
                 case 6:
                     // Lógica para exportar a XML o JSON por Identificador
-
+                    bbddVideojuegos.exportarJuegoXMLoJSON();
                     break;
                 case 7:
                     // Lógica para convertir XML a JSON
