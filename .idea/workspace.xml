@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff2c2fe8-312a-44bb-a3df-4223be3be4ac" name="Changes" comment="falta corregir un error si se elimina el archivo xml, y terminar metodo de la opcion 6">
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/MiVideojuego.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/MiVideojuego.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/BbddVideojuegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/BbddVideojuegos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tema2/Act1p4/videojuegos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tema2/Act1p4/videojuegos.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

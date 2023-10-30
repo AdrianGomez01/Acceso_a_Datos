@@ -29,7 +29,12 @@ public class BbddVideojuegos {
         this.videojuegos = videojuegos;
     }
 
-
+    /**
+     * Este método recupera los datos de un CSV para convertirlos en objetos de tipo Videojuego y añadirlos a una List,
+     * para después volcarla en el fichero XML comprobando si el identificador no se encontraba ya en el xml. También
+     * comprueba que se haya añadido al menos un juego del CSV al XML, en el caso en el que ya se encontraran todos
+     * en el XML se avisará al usuario por consola.
+     */
     public void cargarCSV() {
         recuperarLista();
         boolean juegoAnhadido = false;
@@ -70,6 +75,9 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método vuelca la lista en el XML usando marshaller.
+     */
     private void volcarLista() {
         try {
             JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
@@ -85,31 +93,46 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método recorre la lista buscando un videojuego el cual tenga un Identificador que coincida con el pasado
+     * por parámetro
+     * @param identificador - id a buscar en la lista
+     * @return - true:si lo ha encontrado. false: si no lo ha encontrado.
+     */
     private boolean comprobarId(String identificador) {
         Iterator<Videojuego> iterator = videojuegos.iterator();
         while (iterator.hasNext()) {
             Videojuego juego = iterator.next();
             if (juego.getIdentificador().equals(identificador)) {
-                //Si lo encontramos devolvemos true.
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * Este método comprueba que exista un XML, si es así, recupera los datos con unmarshaller y los vuelca en la lista
+     */
     public void recuperarLista() {
-        try {
-            File f = new File("src/Tema2/Act1p4/videojuegos.xml");
-            JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            BbddVideojuegos juego = (BbddVideojuegos) unmarshaller.unmarshal(f);
-            this.videojuegos = juego.getVideojuegos();
 
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
+        File f = new File("src/Tema2/Act1p4/videojuegos.xml");
+        if (f.exists()) {
+            try {
+                JAXBContext context = JAXBContext.newInstance(BbddVideojuegos.class);
+                Unmarshaller unmarshaller = context.createUnmarshaller();
+                BbddVideojuegos juego = (BbddVideojuegos) unmarshaller.unmarshal(f);
+                this.videojuegos = juego.getVideojuegos();
+
+            } catch (JAXBException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
+    /**
+     * Este método nos permite insertar un nuevo juego en el XML, comprueba que el Identificador sea exactamente de 5
+     * carácteres y que no se encuentre ya en el XML. Luego nos pide los datos del videojuego el cual añadirá al XML.
+     */
     public void insertarJuego() {
         recuperarLista();
 
@@ -140,6 +163,9 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método usa los datos del XML y los pasa a un fichero JSON.
+     */
     public void pasarXMLaJSON() {
         recuperarLista();
         try {
@@ -164,6 +190,9 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método recupera los datos del XML, los ordena por identificador y vuelve a volcarlos en el XML.
+     */
     public void ordenarPorIdentificador() {
         recuperarLista();
         videojuegos.sort(Comparator.comparing(Videojuego::getIdentificador));
@@ -171,6 +200,10 @@ public class BbddVideojuegos {
         System.out.println("Fichero ordenado por el campo Identificador");
     }
 
+    /**
+     * Este método recupera los datos del XML en una Lista, recorre la lista buscando el identificador introducido y si
+     * lo encuentra lo remueve y vuelve a volcar la lista. Si no se encuentra se avisa al usuario por consola.
+     */
     public void borrarPorIdentificador() {
         recuperarLista();
         System.out.println("Lista de juegos en su XML: \n");
@@ -196,6 +229,10 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método simplemente muestra el identificador y el titulo de los videojuegos de nuestra lista para comodidad
+     * del usuario en algunos casos.
+     */
     public void mostrarLista() {
         for (Videojuego juegos : this.videojuegos) {
             System.out.println("Identificador: " + juegos.getIdentificador());
@@ -203,6 +240,11 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método devuelve un objeto de tipo videojuego de la List el cual tenga el identificador introducido por parámetro
+     * @param identificador - identificador del videojuego que queremos
+     * @return - objeto de tipo videojuego si lo ha encontrado. Null si no.
+     */
     public Videojuego buscarVideojuegoPorIdentificador(String identificador) {
         for (Videojuego videojuego : videojuegos) {
             if (videojuego.getIdentificador().equals(identificador)) {
@@ -212,6 +254,11 @@ public class BbddVideojuegos {
         return null;
     }
 
+    /**
+     * Este método muestra los juegos en el XML y pide al usuario un identificador del juego que desea modificar,
+     * si no lo encuentra se avisará al usuario por consola.
+     * Si lo encuentra se pide al usuario los nuevos campos y se vuelca en el XML
+     */
     public void modificarVideojuegoPorIdentificador() {
         recuperarLista();
         System.out.println("Lista de juegos en su XML: \n");
@@ -250,6 +297,10 @@ public class BbddVideojuegos {
         }
     }
 
+    /**
+     * Este método muestra los juegos en el XML y pide al usuario un identificador del juego que desea exportar. Luego
+     * se pide a que extension se desea exportar y se hace la conversion a XML o JSON.
+     */
     public void exportarJuegoXMLoJSON() {
         recuperarLista();
         System.out.println("Lista de juegos en su XML: \n");

@@ -16,12 +16,4 @@
         <precio>59.99€</precio>
         <titulo>Elden Ring</titulo>
     </videojuegos>
-    <videojuegos Identificador="586GH">
-        <desarrolladora>nintendo</desarrolladora>
-        <genero>simulador</genero>
-        <pegi>3</pegi>
-        <plataformas>nds</plataformas>
-        <precio>50</precio>
-        <titulo>coocking mama</titulo>
-    </videojuegos>
 </Videojuegos>
